@@ -30,9 +30,9 @@ sv-shell path/to/design.sv --module my_module
 ## Library
 
 ```python
-from sv_shell import generate_shell_from_file
+from sv_shell import shell_from_sv
 
-shell = generate_shell_from_file("path/to/design.sv")
+shell = shell_from_sv("path/to/design.sv")
 print(shell)
 ```
 

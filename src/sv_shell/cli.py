@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from .generator import ShellGenerationError, generate_shell_from_file
+from .generator import ShellGenerationError, shell_from_sv
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -36,7 +36,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     try:
-        output = generate_shell_from_file(args.input, module_name=args.module)
+        output = shell_from_sv(args.input, module_name=args.module)
     except (OSError, ShellGenerationError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1

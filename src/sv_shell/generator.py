@@ -24,7 +24,7 @@ class ShellGenerationError(RuntimeError):
     pass
 
 
-def generate_shell_from_file(path: str | Path, module_name: str | None = None) -> str:
+def shell_from_sv(path: str | Path, module_name: str | None = None) -> str:
     source_path = Path(path)
     source_text = source_path.read_text()
     tree = pyslang.SyntaxTree.fromFile(str(source_path))

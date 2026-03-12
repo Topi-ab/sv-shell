@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ab-sv-shell"
-version = "0.1.0"
+version = "0.1.1"
 description = "Generate empty SystemVerilog shells with all signal types forced to logic"
 readme = "README.md"
 requires-python = ">=3.9"

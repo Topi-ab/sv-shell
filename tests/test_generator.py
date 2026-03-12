@@ -3,7 +3,7 @@
 
 from pathlib import Path
 
-from sv_shell import generate_shell_from_file
+from sv_shell import shell_from_sv
 
 
 def write_sv(tmp_path: Path, name: str, content: str) -> Path:
@@ -32,7 +32,7 @@ endmodule
 """,
     )
 
-    rendered = generate_shell_from_file(source)
+    rendered = shell_from_sv(source)
 
     assert not rendered.startswith("//")
     assert "SPDX-License-Identifier" not in rendered
@@ -64,7 +64,7 @@ endmodule
 """,
     )
 
-    rendered = generate_shell_from_file(source)
+    rendered = shell_from_sv(source)
 
     assert "module bar (" in rendered
     assert "input logic [3:0] a" in rendered
@@ -87,7 +87,7 @@ endmodule
 """,
     )
 
-    rendered = generate_shell_from_file(source)
+    rendered = shell_from_sv(source)
 
     assert "module n (" in rendered
     assert ");" in rendered
