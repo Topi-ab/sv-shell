@@ -53,21 +53,9 @@ sv-shell examples/counter.v -o examples/counter_shell.sv
 cat examples/counter_shell.sv
 ```
 
-## Release to PyPI (GitHub Automation)
+## Maintainer Notes
 
-This repository includes `.github/workflows/publish.yml`, which builds and publishes `ab-sv-shell` to PyPI when a GitHub Release is published.
-
-1. Create the `ab-sv-shell` project on PyPI (once).
-2. In PyPI project settings, add a Trusted Publisher with:
-   - Owner: `Topi-ab`
-   - Repository: `sv-shell`
-   - Workflow name: `publish.yml`
-   - Environment name: `pypi`
-3. In GitHub, create an environment named `pypi` for this repository.
-4. Bump `version` in `pyproject.toml`.
-5. Create and publish a GitHub Release (or run the workflow manually).
-
-The workflow uses OpenID Connect (OIDC), so no PyPI API token secret is required.
+Release and PyPI publishing steps are documented in `RELEASING.md`.
 
 ## License
 
