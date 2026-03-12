@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2026 sv-shell contributors
+# SPDX-License-Identifier: LGPL-3.0-or-later
+
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ab-sv-shell"
+version = "0.1.0"
+description = "Generate empty SystemVerilog shells with all signal types forced to logic"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "sv-shell contributors" }]
+license = "LGPL-3.0-or-later"
+license-files = ["LICENSE", "LICENSES/*.txt"]
+dependencies = [
+  "pyslang>=10.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Topi-ab/sv-shell"
+Repository = "https://github.com/Topi-ab/sv-shell"
+
+[project.scripts]
+sv-shell = "sv_shell.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-q"

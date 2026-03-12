@@ -7,10 +7,16 @@
 
 It uses `pyslang` (py-slang) AST parsing.
 
-## Install
+## Install (PyPI)
 
 ```bash
-python3 -m pip install .
+python3 -m pip install ab-sv-shell
+```
+
+## Install (Local Development)
+
+```bash
+python3 -m pip install -e .
 ```
 
 ## CLI
@@ -47,9 +53,24 @@ sv-shell examples/counter.v -o examples/counter_shell.sv
 cat examples/counter_shell.sv
 ```
 
+## Release to PyPI (GitHub Automation)
+
+This repository includes `.github/workflows/publish.yml`, which builds and publishes `ab-sv-shell` to PyPI when a GitHub Release is published.
+
+1. Create the `ab-sv-shell` project on PyPI (once).
+2. In PyPI project settings, add a Trusted Publisher with:
+   - Owner: `Topi-ab`
+   - Repository: `sv-shell`
+   - Workflow name: `publish.yml`
+   - Environment name: `pypi`
+3. In GitHub, create an environment named `pypi` for this repository.
+4. Bump `version` in `pyproject.toml`.
+5. Create and publish a GitHub Release (or run the workflow manually).
+
+The workflow uses OpenID Connect (OIDC), so no PyPI API token secret is required.
+
 ## License
 
 Project source code is licensed under `LGPL-3.0-or-later`.
 Generated output files do not include injected SPDX/copyright lines, so existing
 copyright / licensing on your original source is applied to the generated file.
-# sv-shell
